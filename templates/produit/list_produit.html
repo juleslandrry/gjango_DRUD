@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+    {% block content %}
+<div class="col-md-5">
+    <h5>Produits:</h5>
+    <hr>
+    <div class="card card-body">
+        <a href="" class="btn btn-primary btn-sm btn-block">Creer un Produit</a>
+        <table class="table table-sm">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Date de creation</th>
+                <th>tag</th>
+            </tr>
+
+            {% for produit in produits %}
+            <tr>
+            <th>{{produit.id}}</th>
+            <th>{{produit.nom}}</th>
+            <th>{{produit.prix}}</th>
+            <th>{{produit.date_creation}}</th>
+            <th>{{produit.tag}}</th>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+</div>
+    {% endblock %}

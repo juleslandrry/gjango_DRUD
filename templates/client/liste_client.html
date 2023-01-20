@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+    {% block content %}
+
+    <br>
+    <div class="row">
+        <div class="col-md">
+            <div class="card cardbody">
+                <h5>Clients:</h5>
+                <hr>
+                <a href="{% url 'modifier_client' client.id %}" class="btn btn-outline-info btn-sm btn-block">Modifier le client</a>
+                <a href="{% url 'supprimer_client' client.id %}" class="btn btn-outline-danger btn-sm btn-block">Supprimer le client</a>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card cardbody">
+                <h5>Informations</h5>
+                <hr>
+                <p>Nom: {{client.nom}} </p>
+                <p>Telephones: {{client.telephone}} </p>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card cardbody">
+                <h5>Total des commandes</h5>
+                <hr>
+                <h1 style="text-align:center;padding: 10px">{{commande_total}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="card cardbody">
+                <form action="" method="get">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                    {{ myFilter.form }}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-md">
+            <div class="card cardbody">
+                <table class="table table-sm">
+                    <tr>
+                        <th>Produits</th>
+                        <th>Date de commande</th>
+                        <th>Status</th>
+                        <th>Mise a jour</th>
+                        <th>Supprimer</th>
+                    </tr>
+                    {% for commande in commande %}
+                    <tr>
+                        <th>{{commande.produit}}</th>
+                        
+                        <th>{{commande.date_creation}}</th>
+                        <th>{{commande.status}}</th>
+                        <th><a href=""> Mise a jour</a></th>
+                        <th><a href=""> Supprimer</a></th>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}
