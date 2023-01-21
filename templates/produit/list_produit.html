@@ -11,16 +11,16 @@
                 <th>Nom</th>
                 <th>Prix</th>
                 <th>Date de creation</th>
-                <th>tag</th>
+                <th>Marque</th>
             </tr>
 
-            {% for produit in produits %}
+            {% for produit in produit %}
             <tr>
             <th>{{produit.id}}</th>
             <th>{{produit.nom}}</th>
             <th>{{produit.prix}}</th>
             <th>{{produit.date_creation}}</th>
-            <th>{{produit.tag}}</th>
+            <th>{{produit.marque}}</th>
             </tr>
             {% endfor %}
             

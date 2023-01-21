@@ -2,7 +2,7 @@ from django.shortcuts import render
 from commande.models import Commande
 from client.models import Client
 from .models import Produit
-from .models import Tag
+from .models import Marque
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -16,7 +16,6 @@ def home(request):
 
 def listproduit(request):
     produit=Produit.objects.all()
-    tag=Tag.objects.all()
-    context={'produits':produit, 'tag':tag}
+    context={'produit':produit}
     return render(request, 'produit/list_produit.html',context)
 
