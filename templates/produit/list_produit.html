@@ -4,7 +4,7 @@
     <h5>Produits:</h5>
     <hr>
     <div class="card card-body">
-        <a href="" class="btn btn-primary btn-sm btn-block">Creer un Produit</a>
+        <a href="{% url 'ajoutproduit' %}" class="btn btn-primary btn-sm btn-block">Creer un Produit</a>
         <table class="table table-sm">
             <tr>
                 <th>Id</th>
@@ -12,6 +12,8 @@
                 <th>Prix</th>
                 <th>Date de creation</th>
                 <th>Marque</th>
+                <th>Image</th>
+
             </tr>
 
             {% for produit in produit %}
@@ -21,6 +23,10 @@
             <th>{{produit.prix}}</th>
             <th>{{produit.date_creation}}</th>
             <th>{{produit.marque}}</th>
+            <th>{{produit.image}}</th>
+            
+            <th><a class="btn btn-sm btn-primary" href="{% url 'modifierproduit' produit.id %}">Modifier</a> </th>
+            <th><a class="btn btn-sm btn-danger" href="{% url 'sup_produit' produit.id %}">Supprimer</a> </th>
             </tr>
             {% endfor %}
             

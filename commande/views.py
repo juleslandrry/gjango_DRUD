@@ -22,7 +22,7 @@ def ajouter_commande(request):
         form=CommandeForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('listcommande')
     context={'form':form}
     return render (request, 'commande/ajouter_commande.html', context) 
     
